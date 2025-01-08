@@ -1,80 +1,162 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
 
 body {
-    font-family: 'Cabin';
-    background-color: #758190;
+    font-family: 'Cabin', sans-serif;
+    background: linear-gradient(135deg, #88d8f1, #758190);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
 }
 
+/* Header Styling */
 #tentacles {
-    width: 50px;
+    width: 60px;
+    margin-right: 10px;
 }
 
 .header {
     display: flex;
-    background-color: lightblue;
-    padding: 1%;
+    background-color: #4e79a7; /* Darker blue for the header */
+    padding: 20px;
     align-items: center;
-    margin-left: -10px;
-    margin-right: -10px;
-    margin-top: -10px;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.header-text {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Stats Section */
 .stats-container {
-    display: flex; /* Enables Flexbox layout */
-    align-items: center; /* Align items vertically in the center */
-    cursor: pointer; /* Changes the cursor to a pointer on hover */
-    box-shadow: 0 0 30px lightblue; /* Adds a glowing lightblue shadow on hover */
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 5%;
+    gap: 2%;
+    margin-top: 30px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
-
-
 
 .stats-card {
-    background-color: #a8b0bc;
-    border-radius: 7px;
-    padding: 1%;
-    margin: 1%;
-    width: 100%;
+    background-color: #1d2d44; /* Deep blue-gray */
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
     text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 #num-contributions, #total-raised, #num-games {
-    font-size: 50px;
+    font-size: 1.8em;
 }
 
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.6em;
+    margin: 10px 0;
+}
+
+/* Game Cards Section */
 #games-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.game-card {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }
 
 .game-img {
     width: 100%;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.game-card {
-    background-color: #FFFFFF;
-    padding: 1%;
-    margin: 1%;
-    width: 300px;
-    text-align: center;
-    border-radius: 7px;
-}
-
-.game-card:hover {
-    cursor: pointer;
-    box-shadow: 0 0 30px lightblue;
-}
-
-#button-container {
-    text-align: center;
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4em;
+    color: #333;
+    margin: 10px 0;
 }
 
 button {
-    font-family: 'Cabin';
+    font-family: 'Cabin', sans-serif;
+    background-color: #4e79a7;
+    color: #fff;
     border: none;
-    padding: 1%;
-    margin: 1%;
+    padding: 10px 20px;
+    margin: 10px 0;
     border-radius: 7px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
 }
+
+button:hover {
+    background-color: #2c5d80; /* Darker blue on hover */
+}
+
+/* Button Container */
+#button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Description Section */
+#description-container {
+    padding: 20px;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#description-container p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Top Games Section */
+#top-games {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.stats-card {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #2a3d5a;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+#first-game, #second-game {
+    width: 45%;
+}
+
+#first-game h3, #second-game h3 {
+    font-size: 1.5em;
+    color: #f1f1f1;
+    margin-bottom: 10px;
+}
+

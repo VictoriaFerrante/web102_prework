@@ -117,8 +117,41 @@ document.addEventListener("DOMContentLoaded", function() {
     // Get the description container and append the new paragraph
     const descriptionContainer = document.getElementById("description-container");
     descriptionContainer.appendChild(newParagraph);
-});
 
+// Grab the element where you want to display the top 2 games
+const firstGameContainer = document.getElementById("first-game");
+const secondGameContainer = document.getElementById("second-game");
+
+// Sort the games by the pledged amount, from highest to lowest
+const sortedGames = GAMES_JSON.sort((item1, item2) => item2.pledged - item1.pledged);
+
+// Destructure the first and second games from the sorted array
+const [firstGame, secondGame, ...rest] = sortedGames;
+
+// Create and append elements to display the top funded games
+function displayTopGames() {
+    if (firstGameContainer) {
+        // Create a new element to display the name of the top funded game
+        const firstGameName = document.createElement("h3");
+        firstGameName.innerText = firstGame.name;
+
+        // Append it to the first game container
+        firstGameContainer.appendChild(firstGameName);
+    }
+
+    if (secondGameContainer) {
+        // Create a new element to display the name of the second most funded game
+        const secondGameName = document.createElement("h3");
+        secondGameName.innerText = secondGame.name;
+
+        // Append it to the second game container
+        secondGameContainer.appendChild(secondGameName);
+    }
+}
+
+// Call the function to display the top games
+displayTopGames();
+});
 
 
 
@@ -198,24 +231,42 @@ const descriptionContainer = document.getElementById("description-container");
  * Skills used: spread operator, destructuring, template literals, sort 
  */
 
+// Grab the element where you want to display the top 2 games
 const firstGameContainer = document.getElementById("first-game");
 const secondGameContainer = document.getElementById("second-game");
 
-const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
-    return item2.pledged - item1.pledged;
-});
+// Sort the games by the pledged amount, from highest to lowest
+const sortedGames = GAMES_JSON.sort((item1, item2) => item2.pledged - item1.pledged);
 
-// Destructure the first and second games from the sortedGames array
+// Destructure the first and second games from the sorted array
 const [firstGame, secondGame, ...rest] = sortedGames;
 
-// Now `firstGame` is the most funded game and `secondGame` is the second most funded game
-console.log("Top Game:", firstGame);
-console.log("Second Top Game:", secondGame);
+// Create a function to display the top games when a button is clicked
+function displayTopGames() {
+    // Ensure the elements are populated with the top 2 games
+    if (firstGameContainer && secondGameContainer) {
+        firstGameContainer.innerHTML = `
+            <h3>${firstGame.name}</h3>
+            <p>Pledged: $${firstGame.pledged.toLocaleString()}</p>
+            <p>Backers: ${firstGame.backers}</p>
+        `;
+        
+        secondGameContainer.innerHTML = `
+            <h3>${secondGame.name}</h3>
+            <p>Pledged: $${secondGame.pledged.toLocaleString()}</p>
+            <p>Backers: ${secondGame.backers}</p>
+        `;
+    }
+}
 
+// Add event listeners to the buttons (ensure they exist in the HTML)
+document.getElementById("top-game-btn")?.addEventListener("click", displayTopGames);
 
-
-// use destructuring and the spread operator to grab the first and second games
-
-// create a new element to hold the name of the top pledge game, then append it to the correct element
-
-// do the same for the runner up item
+// For the Runner-Up button (second game), we add a similar function if needed
+document.getElementById("second-game")?.addEventListener("click", function() {
+    secondGameContainer.innerHTML = `
+        <h3>${secondGame.name}</h3>
+        <p>Pledged: $${secondGame.pledged.toLocaleString()}</p>
+        <p>Backers: ${secondGame.backers}</p>
+    `;
+});
