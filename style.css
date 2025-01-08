@@ -20,8 +20,21 @@ body {
 }
 
 .stats-container {
-    display: flex;
+    display: flex; /* Enables Flexbox layout */
+    flex-wrap: wrap; /* Allows child elements to wrap onto new lines if needed */
+    justify-content: space-between; /* Distribute the items evenly with space between */
+    align-items: center; /* Align items vertically in the center */
+    gap: 1%; /* Adds spacing between child elements */
+    margin: 2% 0; /* Spacing above and below the container */
+    padding: 1%; /* Internal padding */
+    background-color: #e3e8f0; /* Light background color for contrast */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    box-shadow: 0 0 30px lightblue; /* Adds a glowing lightblue shadow on hover */
 }
+
+
 
 .stats-card {
     background-color: #a8b0bc;
