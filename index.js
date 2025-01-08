@@ -1,6 +1,6 @@
 /*****************************************************************************
  * Challenge 2: Review the provided code. The provided code includes:
- * -> Statements that import data from games.js Comment.
+ * -> Statements that import data from games.js Comment. Comment.
  * -> A function that deletes all child elements from a parent element in the DOM
 */
 
