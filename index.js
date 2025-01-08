@@ -67,6 +67,8 @@ addGamesToPage(GAMES_JSON);
 */
 
 document.addEventListener("DOMContentLoaded", function() {
+    const fundedBtn = document.getElementById("funded-btn");
+
     // grab the contributions card element
     const contributionsCard = document.getElementById("num-contributions");
     
@@ -92,7 +94,32 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // set the inner HTML to display the total number of games
     gamesCard.innerHTML = `${totalGames}`;
+
+    if (fundedBtn) {
+        fundedBtn.addEventListener("click", filterFundedOnly);
+    }
+
+    // Use filter to find all the unfunded games (pledged less than goal)
+    const unfundedGames = GAMES_JSON.filter(game => game.pledged < game.goal);
+
+    // Get the number of unfunded games
+    const numUnfundedGames = unfundedGames.length;
+
+    console.log(`Number of unfunded games: ${numUnfundedGames}`);
+
+    // Template string for money raised and unfunded games count
+    const displayStr = `A total of $${totalPledged.toLocaleString()} has been raised for ${totalGames} games. Currently, ${numUnfundedGames} game${numUnfundedGames === 1 ? '' : 's'} remains unfunded. We need your help to fund these amazing games!`;
+
+    // Create a new paragraph element
+    const newParagraph = document.createElement("p");
+    newParagraph.innerHTML = displayStr;
+
+    // Get the description container and append the new paragraph
+    const descriptionContainer = document.getElementById("description-container");
+    descriptionContainer.appendChild(newParagraph);
 });
+
+
 
 
 
@@ -146,6 +173,7 @@ allBtn.addEventListener("click", showAllGames);
 
 
 
+
 // add event listeners with the correct functions to each button
 
 
@@ -176,6 +204,15 @@ const secondGameContainer = document.getElementById("second-game");
 const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
     return item2.pledged - item1.pledged;
 });
+
+// Destructure the first and second games from the sortedGames array
+const [firstGame, secondGame, ...rest] = sortedGames;
+
+// Now `firstGame` is the most funded game and `secondGame` is the second most funded game
+console.log("Top Game:", firstGame);
+console.log("Second Top Game:", secondGame);
+
+
 
 // use destructuring and the spread operator to grab the first and second games
 
