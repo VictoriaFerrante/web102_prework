@@ -1,6 +1,6 @@
 # WEB102 Prework - *Prework Website*
 
-Submitted by: **Your Name Here**
+Submitted by: **Victoria Ferrante**
 
 **This Prework Website** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
 
@@ -38,7 +38,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2024] [VictoriaFerrante]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
